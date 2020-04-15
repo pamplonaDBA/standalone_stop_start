@@ -1,0 +1,55 @@
+#Pamplona 2019 
+#  Playbook which manages agent actions
+#  requires
+#   logfile:           File where the ouput log is going to be 
+#    req:              CRQ number to label the lackoutblackout
+#    duration:         duration of the blackout  ** NOT mandatory 
+#    agent_action:     [start|stop|createblackout|removeblackout]
+---
+- name : "Starting agent"
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start agent" "
+  register: command_output
+  environment:
+    ORACLE_HOME: "{{oracle_oem_home}}"
+    PATH: "$PATH:${{oracle_oem_home}}/agent13c/agent_inst/bin:/bin:/usr/bin:/bin:/usr/local/bin:/sbin"
+  ignore_errors: true 
+  when: agent_action == "start" 
+
+- name : "Stoping agent"
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop agent" "
+  register: command_output
+  environment:
+    ORACLE_HOME: "{{oracle_oem_home}}"
+    PATH: "$PATH:${{oracle_oem_home}}/agent13c/agent_inst/bin:/bin:/usr/bin:/bin:/usr/local/bin:/sbin"
+  ignore_errors: true 
+  when: agent_action == "stop" 
+
+- name : "creating blackout "
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start blackout  \"{{req|upper}} " -nodeLevel -d \"{{duration}}\"
+  register: command_output
+  environment:
+    ORACLE_HOME: "{{oracle_oem_home}}"
+    PATH: "$PATH:${{oracle_oem_home}}/agent13c/agent_inst/bin:/bin:/usr/bin:/bin:/usr/local/bin:/sbin"
+  ignore_errors: true 
+  when: agent_action == "createblackout" 
+
+
+- name : "removing blackout "
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop blackout   \"{{req|upper}}" "
+  register: command_output
+  environment:
+    ORACLE_HOME: "{{oracle_oem_home}}"
+    PATH: "$PATH:${{oracle_oem_home}}/agent13c/agent_inst/bin:/bin:/usr/bin:/bin:/usr/local/bin:/sbin"
+  ignore_errors: true 
+  when: agent_action == "removeblackout" 
+
+
+- name: registering srvctl   information 
+  blockinfile:
+    path: "{{logfile}}"
+    marker: ""
+    insertafter: EOF
+    block: |
+       {{command_output.stdout}}
+       {{command_output.stderr}}
+    
