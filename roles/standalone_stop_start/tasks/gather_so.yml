@@ -47,8 +47,35 @@
         {{command_output.stdout}}
 
 
+- name: Pmon runnng processes 
+  shell:
+    cmd: ps -f |grep pmon
+  register: command_output
+  
+
+- name: registering pmon processes 
+  blockinfile:
+    path: "{{logfile}}"
+    marker:  ""
+    insertafter: EOF
+    block: |
+      #--------------------- Pmon processes info  -----------------------
+        {{command_output.stdout}}
 
 
+- name: listener  runnng processes 
+  shell:
+    cmd: ps -f |grep lsnr
+  register: command_output
+  
+- name: registering pmon processes 
+  blockinfile:
+    path: "{{logfile}}"
+    marker:  ""
+    insertafter: EOF
+    block: |
+      #--------------------- lsnr processes info  -----------------------
+        {{command_output.stdout}}
 
 
 
