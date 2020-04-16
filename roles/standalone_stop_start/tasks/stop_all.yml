@@ -28,13 +28,13 @@
 - include: tasks/gather_ASM.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.asm}}"
 
 - include: tasks/gather_SID.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.databases}}"
 
 - name: Logging  Stop actions 
@@ -50,20 +50,20 @@
 - include: tasks/listener_shutdown.yml
   vars:
     listener_name: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.listeners}}"
    
 - include: tasks/databases_shutdown.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
-    activo:  "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['databases'][item]['activo']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
+    activo:  "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['databases'][item]['activo']}}"
   with_items: "{{ansible_facts.ansible_local.databases}}"
 
 - include: tasks/asm_shutdown.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.asm}}"
   
 - name : Checking again if evrything is stopped 

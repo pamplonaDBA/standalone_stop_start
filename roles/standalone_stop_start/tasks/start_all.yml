@@ -7,27 +7,27 @@
 - include: tasks/listener_start.yml
   vars:
     listener_name: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.listeners}}"
  
    
 - include: tasks/listener_start.yml
   vars:
     listener_name: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['listeners'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.listeners}}"
 
 - include: tasks/asm_start.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['asm'][item]['oracle_home']}}"
   with_items: "{{ansible_facts.ansible_local.asm}}"
 
 - include: tasks/databases_start.yml
   vars:
     oracle_sid: "{{item}}"
-    oracle_home: "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
-    activo:  "{{hostvars['ansible_hostname']['ansible_facts']['ansible_local']['databases'][item]['activo']}}"
+    oracle_home: "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['databases'][item]['oracle_home']}}"
+    activo:  "{{hostvars[ansible_fqdn]['ansible_facts']['ansible_local']['databases'][item]['activo']}}"
   with_items: "{{ansible_facts.ansible_local.databases}}"
 
  
