@@ -50,8 +50,8 @@
     marker: ""
     insertafter: EOF
     block: |
-        output :
+        output 
         {{command_output.stdout}}
-        error :
+        error 
         {{command_output.stderr}}
   ignore_errors: true 

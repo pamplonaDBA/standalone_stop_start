@@ -17,11 +17,11 @@
     insertafter: EOF
     block: |
            ---------------------  CRS config  -----------------------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
  
 - name : Obtain  ASM information
@@ -40,9 +40,9 @@
     insertafter: EOF
     block: |
        --------------------  ASM config  -----------------------
-       command :
+       command 
        {{command_output.cmd}}
-       output :
+       output 
        {{command_output.stdout}}
-       error :
+       error
        {{command_output.stderr}}

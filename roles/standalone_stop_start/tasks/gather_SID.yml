@@ -23,11 +23,10 @@
       insertafter: EOF
       block: |
           --------------------  {{item}} config  -----------------------
-            what:
+            what
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
            {{command_output.stderr}}
 
    become: yes

@@ -21,11 +21,11 @@
     insertafter: EOF
     block: |
       #--- starting listener  {{item}} ------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
@@ -57,11 +57,11 @@
       marker: ""
       insertafter: EOF
       block: |
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error:
            {{command_output.stderr}}
 
   when:  shutted_down|bool

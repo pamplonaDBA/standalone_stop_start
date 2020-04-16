@@ -14,11 +14,11 @@
     insertafter: EOF
     block: |
       #---------------------  Adding oratab  -----------------------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
@@ -34,11 +34,11 @@
     marker: ""
     block: |
       #---------------------  ASMDISK info  -----------------------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
@@ -56,11 +56,11 @@
     insertafter: EOF
     block: |
       #--------------------- Fdisk  info  -----------------------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
@@ -78,11 +78,11 @@
     insertafter: EOF
     block: |
       #--------------------- Pmon processes info  -----------------------
-           command :
+           command 
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
@@ -99,11 +99,11 @@
     insertafter: EOF
     block: |
            --------------------- lsnr processes info  -----------------------
-           command :
+           command
            {{command_output.cmd}}
-           output :
+           output 
            {{command_output.stdout}}
-           error :
+           error 
            {{command_output.stderr}}
 
 
