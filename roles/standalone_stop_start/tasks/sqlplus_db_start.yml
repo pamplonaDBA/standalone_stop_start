@@ -20,5 +20,9 @@
    marker: ""  
    insertafter: EOF
    block: |
+    command_output
       {{command_output.stdout}}
+    output
+      {{command_output.stdout}}
+    Error  
       {{command_output.stderr}}

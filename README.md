@@ -10,7 +10,7 @@
 -main.yaml:  This playbook is a simple pipe one wich would redirect the flow to the stop or start playbooks depending based on  on the action variable 
 ### Start  process 
 
-```mermaid
+
 stateDiagram
 	[*] --> main
 	main --> start_all
@@ -25,7 +25,7 @@ stateDiagram
     sqlplus_start_database --> start_databases
    agent  --> END
     
-```
+
 ### STop process  
 
 ```mermaid

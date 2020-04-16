@@ -21,7 +21,7 @@
 
 - include: tasks/agent.yml
   vars:
-    agent_action: "{{operation}}"
+    agent_action: "{{operation|lower}}"
 
 - include: tasks/gather_so.yml 
 
