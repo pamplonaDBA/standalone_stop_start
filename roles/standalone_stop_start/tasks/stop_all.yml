@@ -83,7 +83,13 @@
       Shutdown process has failed.
       Please contact with oracle dba team
       -- result output ----
-      {{sid_running.stdout}}
+           command :
+           {{sid_running.cmd}}
+           output :
+           {{sid_running.stdout}}
+           error :
+           {{sid_running.stderr}}
+
       -- result output ----
   when: "{{ sid_running.stdout_lines|length }} > 0"
 

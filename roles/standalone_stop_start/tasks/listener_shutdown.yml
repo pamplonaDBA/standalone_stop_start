@@ -20,9 +20,14 @@
     marker: ""  
     insertafter: EOF
     block: |
-      #--- stopping listener  {{item}} ------
-         {{command_output.stdout}}
-         {{command_output.stderr}}
+          --- stopping listener  {{item}} ------
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 - name : "check if {{item}} is running "
   shell: "ps -ef |grep -v grep |grep -w {{item}}"
   environment:
@@ -52,8 +57,13 @@
       marker: ""
       insertafter: EOF
       block: |
-             {{command_output.stdout}}
-             {{command_output.stderr}}
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
   when: not shutted_down|bool
 
 

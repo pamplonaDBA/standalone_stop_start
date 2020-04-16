@@ -14,7 +14,13 @@
     insertafter: EOF
     block: |
       #---------------------  Adding oratab  -----------------------
-      {{command_output.stdout}}
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 
 - name: Obtaining asmdisk info 
   shell:
@@ -28,7 +34,13 @@
     marker: ""
     block: |
       #---------------------  ASMDISK info  -----------------------
-       {{command_output.stdout}}
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 
 - name: Obtaining disks info
   shell:
@@ -44,12 +56,18 @@
     insertafter: EOF
     block: |
       #--------------------- Fdisk  info  -----------------------
-        {{command_output.stdout}}
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 
 
 - name: Pmon runnng processes 
   shell:
-    cmd: ps -f |grep pmon
+    cmd: ps axf |grep-v grep |grep  pmon
   register: command_output
   
 
@@ -60,12 +78,18 @@
     insertafter: EOF
     block: |
       #--------------------- Pmon processes info  -----------------------
-        {{command_output.stdout}}
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 
 
 - name: listener  runnng processes 
   shell:
-    cmd: ps -f |grep lsnr
+    cmd: ps axf |grep-v grep |grep lsnr
   register: command_output
   
 - name: registering pmon processes 
@@ -74,8 +98,14 @@
     marker:  ""
     insertafter: EOF
     block: |
-      #--------------------- lsnr processes info  -----------------------
-        {{command_output.stdout}}
+           --------------------- lsnr processes info  -----------------------
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
 
 
 

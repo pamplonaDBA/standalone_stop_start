@@ -17,7 +17,13 @@
        ERROR: some database is running.
        Shutdown process has failed.
        Please contact with oracle dba team
-       -- result output ----
+       -- result output ----      
+         command :
+        {{command_output.cmd}}
+        output :
+       {{command_output.stdout}}
+       error :
+       {{command_output.stderr}}
        {{sid_running.stdout}}
        -- result output ----
   when: "{{ sid_running.stdout_lines|length }} > 0"
@@ -43,7 +49,10 @@
       marker: ""
       insertafter: EOF
       block: |
-            # --------------------- stopping {{oracle_sid}}  -----------------------
-             {{command_output.stdout}}
-             {{command_output.stderr}}
-  
+           --------------------- stopping {{oracle_sid}}  -----------------------
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}

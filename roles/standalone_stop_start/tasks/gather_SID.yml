@@ -23,7 +23,13 @@
       insertafter: EOF
       block: |
              --------------------  {{item}} config  -----------------------
-             {{command_output.stdout}}
+            command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+
    become: yes
    become_user: "{{oracle_user}}"
 

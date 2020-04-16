@@ -16,9 +16,14 @@
     marker: ""
     insertafter: EOF
     block: |
-      #---------------------  CRS config  -----------------------
-        {{command_output.stdout}}
-
+           ---------------------  CRS config  -----------------------
+           command :
+           {{command_output.cmd}}
+           output :
+           {{command_output.stdout}}
+           error :
+           {{command_output.stderr}}
+ 
 - name : Obtain  ASM information
   shell:  "{{oracle_home}}/bin/srvctl config asm "
   register: command_output
@@ -34,7 +39,10 @@
     marker: ""
     insertafter: EOF
     block: |
-      #--------------------  ASM config  -----------------------
-        {{command_output.stdout}}
-
-
+       --------------------  ASM config  -----------------------
+       command :
+       {{command_output.cmd}}
+       output :
+       {{command_output.stdout}}
+       error :
+       {{command_output.stderr}}

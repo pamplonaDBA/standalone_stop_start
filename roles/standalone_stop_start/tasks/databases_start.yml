@@ -11,7 +11,7 @@
     marker: ""
     insertafter: EOF
     block: |
-        #--------------------- sartting  {{oracle_sid}}  -----------------------
+        #--------------------- Starting  {{oracle_sid}}  -----------------------
   when: activo|bool
 
 - include: tasks/srvctl_db_start.yml

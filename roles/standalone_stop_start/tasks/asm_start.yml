@@ -18,10 +18,13 @@
       marker: ""
       insertafter: EOF
       block: |
-            # --------------------- stopping {{oracle_sid}}  -----------------------
-             {{command_output.stdout}}
-             {{command_output.stderr}}
-
+            --------------------- Starting  {{oracle_sid}}  -----------------------
+            command :
+            {{command_output.cmd}}
+            output :
+            {{command_output.stdout}}
+            error :
+            {{command_output.stderr}}
 - name : checkif asm is UP 
   shell: "ps -ef |grep pmon |grep -v grep |grep  {{item}}"
   environment: 
