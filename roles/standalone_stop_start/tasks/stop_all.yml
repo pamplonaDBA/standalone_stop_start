@@ -91,12 +91,12 @@
            {{sid_running.stderr}}
 
       -- result output ----
-  when: "{{ sid_running.stdout_lines|length }} > 0"
+  when: " sid_running.stdout_lines|length  > 0"
 
 - name: IF any smon is running we exit with fail msg
   fail: 
      msg: "ERROR: some database is running, please contact with oracle dba team"
-  when: "{{ sid_running.stdout_lines|length }} > 0"
+  when: " sid_running.stdout_lines|length > 0"
 
 
 - name : registering at log the remaining running processes  

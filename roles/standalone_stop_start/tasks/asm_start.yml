@@ -35,6 +35,6 @@
 - name: IF ASM is  down  we exit with fail msg
   fail: 
      msg: "ERROR: ASm did not startup "
-  when: "{{ sid_running.stdout_lines|length }} == 0"
+  when: " sid_running.stdout_lines|length  == 0"
   
   
