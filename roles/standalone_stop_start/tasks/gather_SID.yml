@@ -22,7 +22,7 @@
       marker: ""
       insertafter: EOF
       block: |
-             --------------------  {{item}} config  -----------------------
+          --------------------  {{item}} config  -----------------------
             command :
            {{command_output.cmd}}
            output :
