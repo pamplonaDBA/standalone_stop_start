@@ -7,7 +7,7 @@
 #    agent_action:     [start|stop|createblackout|removeblackout]
 ---
 - name : "Starting agent"
-  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start agent" "
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start agent" 
   register: command_output
   environment:
     ORACLE_HOME: "{{oracle_oem_home}}"
@@ -16,7 +16,7 @@
   when: agent_action == "start" 
 
 - name : "Stoping agent"
-  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop agent" "
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop agent" 
   register: command_output
   environment:
     ORACLE_HOME: "{{oracle_oem_home}}"
@@ -25,7 +25,7 @@
   when: agent_action == "stop" 
 
 - name : "creating blackout "
-  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start blackout  \"{{req|upper}} " -nodeLevel -d \"{{duration}}\"
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl start blackout  \"{{req|upper}} \" -nodeLevel -d \"{{duration}}\" "
   register: command_output
   environment:
     ORACLE_HOME: "{{oracle_oem_home}}"
@@ -35,7 +35,7 @@
 
 
 - name : "removing blackout "
-  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop blackout   \"{{req|upper}}" "
+  shell: "{{oracle_oem_home}}/agent13c/agent_inst/bin/emctl stop blackout   \"{{req|upper}}\" "
   register: command_output
   environment:
     ORACLE_HOME: "{{oracle_oem_home}}"
