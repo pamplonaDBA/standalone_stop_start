@@ -23,7 +23,7 @@
       insertafter: EOF
       block: |
           --------------------  {{item}} config  -----------------------
-            command :
+            what:
            {{command_output.cmd}}
            output :
            {{command_output.stdout}}
