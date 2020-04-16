@@ -48,7 +48,7 @@ stateDiagram
    asm_shutdown --> END     
 ```
 
- ## Files three
+ ## Files tree
 <pre>
  Root
    |
@@ -66,23 +66,23 @@ stateDiagram
              |
              | tasks   
                 |
-                | - agent.yaml                   Playbook wich manages the OEM agent
-                | - asm_shutdown                 Playbook wich shutdowns the asm
-                | - asm_start                    Playbook wich starts the start
-                | - check_running_SID            Playbok wich checks if database is alive 
-                | - databases_shutdown           Playbook wich stops all databases running at the server 
-                | - databases_start              Playbook wich starts all active databases at teh server 
-                | - gather_ASM.yaml              Playook wich gathers ASM info
-                | - gather_SID.yaml              Playbook wich gathers database info
+                | - agent.yaml                   Playbook which manages the OEM agent
+                | - asm_shutdown                 Playbook which shutdowns the asm
+                | - asm_start                    Playbook which starts the start
+                | - check_running_SID            Playbook which checks if database is alive 
+                | - databases_shutdown           Playbook which stops all databases running at the server 
+                | - databases_start              Playbook which starts all active databases at teh server 
+                | - gather_ASM.yaml              Playbook which gathers ASM info
+                | - gather_SID.yaml              Playbook which gathers database info
                 | - listener-shutown             Playbook which stops all the listeners at the server 
-                | - listener_start               Playbook wich starts all the active listeners 
-                | - gather_so.yaml               Playbook wich registers the Operating System info 
-                | - sqlplus_db_shutdown          Playbok wich stops one database trouhth  sqlplus command
-                | - sqlplus_db_start             Playbok wich stops one database trouhth  sqlplus command
-                | - srvctl_db_shutdown           Playbok wich stops one database trouhth  srvctl command
-                | - srvctl_db_start              Playbok wich stops one database trouhth  sqlplus command              
-                | - gather_SID.yaml              Playbook wich gathers database info
-                | - gather_listener              Playbook wich gathers listener info
-                | - start_all                    Playbook wich executes the start
-                | - stop_all                     Playbook wich executes the stop
+                | - listener_start               Playbook which starts all the active listeners 
+                | - gather_so.yaml               Playbook which registers the Operating System info 
+                | - sqlplus_db_shutdown          Playbook which stops one database trouhth  sqlplus command
+                | - sqlplus_db_start             Playbook which stops one database trouhth  sqlplus command
+                | - srvctl_db_shutdown           Playbook which stops one database trouhth  srvctl command
+                | - srvctl_db_start              Playbook which stops one database trouhth  sqlplus command              
+                | - gather_SID.yaml              Playbook which gathers database info
+                | - gather_listener              Playbook which gathers listener info
+                | - start_all                    Playbook which executes the start
+                | - stop_all                     Playbook which executes the stop
 </pre>
