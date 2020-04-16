@@ -11,7 +11,7 @@
 ### Start  process 
 
 
-{% mermaid %}
+```mermaid
 stateDiagram
 	[*] --> main
 	main --> start_all
@@ -25,7 +25,7 @@ stateDiagram
     check_running_SID --> sqlplus_start_database
     sqlplus_start_database --> start_databases
    agent  --> END
-{% endmermaid %}    
+```   
 
 ### STop process  
 
