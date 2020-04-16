@@ -67,7 +67,7 @@
 
 - name: Pmon runnng processes 
   shell:
-    cmd: ps axf |grep-v grep |grep  pmon
+    cmd: ps axf |grep -v grep |grep  pmon
   register: command_output
   
 
@@ -89,7 +89,7 @@
 
 - name: listener  runnng processes 
   shell:
-    cmd: ps axf |grep-v grep |grep lsnr
+    cmd: ps axf |grep -v grep |grep lsnr
   register: command_output
   
 - name: registering pmon processes 

@@ -29,4 +29,4 @@ redo1_location:
 redo2_location:
   FS:                           "/oradata/{{SID}}/redo"
   ASM:                          "+{{oracle_hostname}}_REDO2'}}"
-oracle_oem_home:                 "{{oracle_base}}/product/em13"
+oracle_oem_home:                 "{{oracle_base}}/product/em13c"
