@@ -11,7 +11,7 @@
 - name: registering db_status
   set_fact:
     shutted_down: true
-  when: " sid_running.stdout_lines|length  == 0"
+  when: " {{sid_running.stdout_lines|length}}  == 0"
 
 - name: registering srvctl stop   information (ok)
   blockinfile:
@@ -19,7 +19,7 @@
     block: "OK: no pmon process runnig for database, the database {{item}} is down "
     marker: ""
     insertafter: EOF
-  when: " sid_running.stdout_lines|length  == 0"
+  when: " {{sid_running.stdout_lines|length}}  == 0"
 
 - name: registering srvctl stop   information (error)
   blockinfile:
@@ -28,4 +28,4 @@
     marker: ""
     block: |
       "WARNING: {{ sid_running.stdout_lines|length }} ora_pmon{{item}} actives, stopping  database by sqlplus"
-  when: "sid_running.stdout_lines|length  > 0"
+  when: "{{sid_running.stdout_lines|length}}  > 0"

@@ -34,4 +34,4 @@
 - name: "IF {{itm}}}} is  down  we exit with fail msg"
   fail: 
      msg: "ERROR: {{ITEM}} database  did not startup "
-  when: " sid_running.stdout_lines|length  == 0"
+  when: " {{sid_running.stdout_lines|length}}  == 0"
