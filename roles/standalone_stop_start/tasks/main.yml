@@ -13,7 +13,6 @@
   
 - name: Collect new generated facts 
   setup:
-   filter : all 
  
 
 - name: setting LOG variable
