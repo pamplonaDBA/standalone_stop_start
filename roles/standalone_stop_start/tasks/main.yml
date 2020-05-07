@@ -14,8 +14,7 @@
   setup:
     gather_subset:
       - 'facter'
-when: operation|lower =="stop"
-
+  when: operation|lower =="stop"
 
 - name: setting LOG variable
   set_fact:
