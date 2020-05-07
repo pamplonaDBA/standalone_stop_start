@@ -9,7 +9,7 @@
 #
 ---
 - hosts: "{{ env }}"
-  throttle: 1
+  gather_facts: no
   vars:
     operation: stop
   vars_files:

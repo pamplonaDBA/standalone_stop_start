@@ -9,7 +9,6 @@
 #
 ---
 - hosts: "{{ env }}"
-  throttle: 1
   vars:
     operation: start
   vars_files:
