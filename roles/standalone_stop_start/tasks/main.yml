@@ -11,7 +11,7 @@
 
 - name: setting LOG variable
   set_fact:
-      logfile: "{{oracle_user_home}}/logs/{{ ansible_date_time.date}}:{{ansible_date_time.time}}_{{operation|upper}}_by_ANSIBLE.log"
+      logfile: "{{oracle_logs_dir}}/{{ ansible_date_time.date}}:{{ansible_date_time.time}}_{{operation|upper}}_by_ANSIBLE.log"
 
 - name: setting header at logfile  
   blockinfile:  

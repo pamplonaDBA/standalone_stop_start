@@ -1,4 +1,4 @@
-ansible_user:                   "svcautoope"
+ansible_user:                   "ansible"
 root_user:                      "root"
 oracle_user:                    "oracle"
 oracle_uid:                     "500"
@@ -19,14 +19,14 @@ oracle_home_directory:
 response_file:                  "{{type}_{{action}}_{{version}}.rsp"
 data_location:          
  FS:                            "/oradata/{{SID}}/data"
- ASM:                           "+{{oracle_hostname}}_DATA'}}"
+ ASM:                           "+{{oracle_hostname}}_DATA"
 fra_location:
   FS:                           "/oradata/{{SID}}/data"
-  ASM:                          "+{{oracle_hostname}}_FRA'}}"
+  ASM:                          "+{{oracle_hostname}}_FRA"
 redo1_location:
   FS:                           "/oradata/{{SID}}/redo"
-  ASM:                          "+{{oracle_hostname}}_REDO1'}}"
+  ASM:                          "+{{oracle_hostname}}_REDO1"
 redo2_location:
   FS:                           "/oradata/{{SID}}/redo"
-  ASM:                          "+{{oracle_hostname}}_REDO2'}}"
+  ASM:                          "+{{oracle_hostname}}_REDO2"
 oracle_oem_home:                 "{{oracle_base}}/product/em13c"

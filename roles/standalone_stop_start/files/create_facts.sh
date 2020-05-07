@@ -52,6 +52,6 @@ rm -f ${LOGFILE}*
  do
  ORACLE_HOME=`ps -ef |grep lsnr|grep -v grep| grep -w $j |awk '{print $8}'`
  echo "[$j]" >>${LOGFILE}
- echo "oracle_home=${ORACLE_HOME::-12}" >>${LOGFILE}
+ echo "oracle_home=${ORACLE_HOME:0:${#ORACLE_HOME}- 12}" >>${LOGFILE}
 done
 
