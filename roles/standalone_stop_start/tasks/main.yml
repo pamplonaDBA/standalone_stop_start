@@ -9,10 +9,13 @@
   script: files/create_facts.sh
   when: operation|lower =="stop"
   become: "{{ansible_user}}"
-- name: gather generated facts  
-  role:
-  - setup
-  when: operation|lower =="stop"
+  
+- name: Collect new generated facts 
+  setup:
+    gather_subset:
+      - 'facter'
+when: operation|lower =="stop"
+
 
 - name: setting LOG variable
   set_fact:
