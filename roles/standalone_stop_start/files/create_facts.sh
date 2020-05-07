@@ -11,7 +11,7 @@ export  DATE=`date +%F%H%M`
 #
 ## ASM 
 export LOGFILE=${LOGDIR}/asm.fact
-rm -f ${LOGFILE}*
+echo >  ${LOGFILE}
 for i in ` cat /etc/oratab|sed -e 's/# line added by Agent/ /g' -e 's/:/ /g' -e '/^$/d' |grep -v '#'|grep  ASM| awk '{ print $1}' `
 do
  echo "[ASM]" >>${LOGFILE}
@@ -28,7 +28,7 @@ do
  done
 ## Databases
 export LOGFILE=${LOGDIR}/databases.fact
-rm -f ${LOGFILE}*
+echo >  ${LOGFILE}
 
 for i in ` cat /etc/oratab|sed -e 's/# line added by Agent/ /g' -e 's/:/ /g' -e '/^$/d' |grep -v '#'|grep -v ASM| awk '{ print $1}' `
  do
@@ -46,7 +46,7 @@ fi
   done
 
 export LOGFILE=${LOGDIR}/listeners.fact
-rm -f ${LOGFILE}*
+echo >  ${LOGFILE}
 #listeners
  for j in `ps -ef |grep lsnr|grep -v grep |awk '{print $9}'`
  do
