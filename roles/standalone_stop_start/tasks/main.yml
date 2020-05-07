@@ -12,9 +12,8 @@
   
 - name: Collect new generated facts 
   setup:
-    gather_subset:
-      - 'facter'
-  when: operation|lower =="stop"
+   filter : all 
+ 
 
 - name: setting LOG variable
   set_fact:
