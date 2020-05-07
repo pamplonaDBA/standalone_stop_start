@@ -8,6 +8,7 @@
 - name: gather local facts 
   script: files/create_facts.sh
   when: operation|lower =="stop"
+  become: "{{ansible_user}}"
 
 - name: setting LOG variable
   set_fact:
